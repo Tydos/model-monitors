@@ -1,0 +1,16 @@
+
+tracking_uri: "http://54.236.35.141:5000/"
+experiment_name: "model-monitors"
+test_size: 0.9
+random_state: 42
+model_params:
+  model_type: DecisionTreeClassifier
+  max_depth: 2
+  min_samples_split: 2
+  min_samples_leaf: 1
+  criterion: "gini"
+  max_features: 'sqrt'
+data_path: "dataset/train.csv"
+target_column: "loan_paid_back"
+
+
