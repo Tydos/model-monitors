@@ -1,6 +1,7 @@
 import onnxruntime as ort
 from schema import InputData
 import numpy as np
+
 def onnx_inference(data:InputData) -> float:
     session = ort.InferenceSession("model.onnx", providers=["CPUExecutionProvider"])
     input_name = session.get_inputs()[0].name
