@@ -3,7 +3,6 @@ from onnxinference import onnx_inference
 import numpy as np
 from schema import InputData
 import pytest
-from collections.abc import Sequence
 
 """
 what does this code test?
@@ -50,7 +49,7 @@ def test_input_schema():
 def test_pydantic_validation():  
     #Check Pydantic
     with pytest.raises(ValueError):
-        invalid_input = InputData(features=[])
+        InputData(features=[])
 
 def test_onnx_inference():    
     #Check ONNX inference
