@@ -21,6 +21,7 @@ def train_script(config):
         #setup mlflow
         mlflow.set_tracking_uri(config["tracking_uri"])
         mlflow.set_experiment(config["experiment_name"])    
+        mlflow.start_run()
         logging.info("MLflow tracking URI and experiment set.")
 
         df = pd.read_csv(config["data_path"])
@@ -33,6 +34,7 @@ def train_script(config):
 
         X = df.drop(columns=[config["target_column"]])
         y = df[config["target_column"]]
+        X = X.drop(columns=["id"])
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=config["test_size"], random_state=config["random_state"])
         logging.info("Data split into train and test sets.")
         logging.info(f"Training set shape: {X_train.shape}, Test set shape: {X_test.shape}")

@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field, field_validator
 
-len_features = 12
+len_features = 11
 class InputData(BaseModel):
     features: list[float] = Field(...)
 
